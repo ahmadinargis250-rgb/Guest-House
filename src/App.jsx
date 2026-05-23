@@ -68,7 +68,7 @@ function BookingCounter() {
 
       <style>{`@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }`}</style>
 
-      <div style={{ maxWidth: 800, margin: "0 auto" }}>
+      <div className="booking-inner" style={{ maxWidth: 800, margin: "0 auto" }}>
         {step === 1 && (
           <div style={{ background: "#141414", border: "1px solid rgba(255,255,255,0.07)", padding: 48 }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginBottom: 24 }}>
@@ -172,7 +172,7 @@ function BookingCounter() {
 // ── TRANSPARENT NAV (used on all pages) ──
 function Nav({ page, setPage, solid }) {
   return (
-    <nav style={{
+    <nav className="main-nav" style={{
       position: "fixed", top: 0, left: 0, width: "100%", zIndex: 1000,
       display: "flex", alignItems: "center", justifyContent: "space-between",
       padding: "0 60px", height: 110,
@@ -279,12 +279,12 @@ export default function App() {
   // SERVICES PAGE
   // ────────────────────────────────────────
   if (page === "services") return (
-    <div style={{ background: "#0a0a0a", minHeight: "100vh", color: "#fff", fontFamily: "Montserrat, sans-serif" }}>
+    <div className="app-root" style={{ background: "#0a0a0a", minHeight: "100vh", color: "#fff", fontFamily: "Montserrat, sans-serif" }}>
       <link href={FONT} rel="stylesheet" />
       <Nav page={page} setPage={setPage} solid={false} />
 
       {/* Hero — full bleed photo, no nav background */}
-      <div style={{ position: "relative", height: "60vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+      <div className="page-hero" style={{ position: "relative", height: "60vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
         <img src={pic5} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(10,10,10,1))" }} />
         <div style={{ position: "relative", zIndex: 10, textAlign: "center", paddingTop: 110 }}>
@@ -300,7 +300,7 @@ export default function App() {
         <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 48, fontWeight: 300, color: "#fff", marginBottom: 12 }}>Facilities & Services</h2>
         <div style={{ width: 60, height: 1, background: "#c9a96e", margin: "0 auto" }} />
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, padding: "30px 60px 70px" }}>
+      <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, padding: "30px 60px 70px" }}>
         {[
           { icon: "📶", title: "Free High-Speed WiFi",    text: "Fast internet in every room and common area. Stay connected for work or leisure throughout your stay." },
           { icon: "🛏", title: "Premium Room Comfort",    text: "Fresh bedsheets daily, AC, private bathrooms with hot water, ceiling fans, and mood LED lighting." },
@@ -324,7 +324,7 @@ export default function App() {
       </div>
 
       {/* Photo + text */}
-      <div style={{ padding: "80px 60px", display: "flex", alignItems: "center", gap: 70, background: "#0d0d0d", flexWrap: "wrap" }}>
+      <div className="stack-mobile photo-text" style={{ padding: "80px 60px", display: "flex", alignItems: "center", gap: 70, background: "#0d0d0d", flexWrap: "wrap" }}>
         <div style={{ flex: 1, minWidth: 300 }}>
           <img src={pic3} alt="Facilities"
             onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.02)"; e.currentTarget.style.boxShadow = "0 30px 80px rgba(201,169,110,0.2)"; }}
@@ -357,12 +357,12 @@ export default function App() {
   // ABOUT PAGE
   // ────────────────────────────────────────
   if (page === "about") return (
-    <div style={{ background: "#0a0a0a", minHeight: "100vh", color: "#fff", fontFamily: "Montserrat, sans-serif" }}>
+    <div className="app-root" style={{ background: "#0a0a0a", minHeight: "100vh", color: "#fff", fontFamily: "Montserrat, sans-serif" }}>
       <link href={FONT} rel="stylesheet" />
       <Nav page={page} setPage={setPage} solid={false} />
 
       {/* Hero — transparent nav over photo */}
-      <div style={{ position: "relative", height: "65vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+      <div className="page-hero" style={{ position: "relative", height: "65vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
         <img src={pic1} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(10,10,10,1))" }} />
         <div style={{ position: "relative", zIndex: 10, textAlign: "center", paddingTop: 110 }}>
@@ -380,7 +380,7 @@ export default function App() {
       </div>
 
       {/* 3 cards */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, padding: "0 60px 70px" }}>
+      <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, padding: "0 60px 70px" }}>
         {[
           { icon: "📍", title: "Our Location",  text: "Located in a quiet and beautiful area close to the city center, restaurants, and tourist attractions. Easy access for all guests." },
           { icon: "🏨", title: "Hospitality",   text: "Our friendly staff is always ready to help guests. We believe in providing warm hospitality and making every guest feel at home." },
@@ -398,7 +398,7 @@ export default function App() {
       </div>
 
       {/* Our Story section */}
-      <div style={{ padding: "80px 60px", display: "flex", alignItems: "center", gap: 80, background: "#0d0d0d", flexWrap: "wrap" }}>
+      <div className="stack-mobile photo-text" style={{ padding: "80px 60px", display: "flex", alignItems: "center", gap: 80, background: "#0d0d0d", flexWrap: "wrap" }}>
         <div style={{ flex: 1, minWidth: 300 }}>
           <img src={pic4} alt="Our Story" style={{ width: "100%", height: 420, objectFit: "cover" }} />
         </div>
@@ -418,7 +418,7 @@ export default function App() {
           <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 48, fontWeight: 300, color: "#fff", marginBottom: 12 }}>Rooms & Facilities</h2>
           <div style={{ width: 60, height: 1, background: "#c9a96e", margin: "0 auto" }} />
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 }}>
+        <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 }}>
           {["Comfortable Rooms", "Free Wi-Fi", "Clean Bathrooms", "Air Conditioning", "Breakfast Service", "Parking Space", "Daily Housekeeping", "24/7 Concierge", "Security & Safety", "Purple LED Mood Lights", "Sofa Seating", "Flat Screen TV"].map((f, i) => (
             <div key={i}
               onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(201,169,110,0.4)"; e.currentTarget.style.transform = "translateX(8px)"; }}
@@ -432,7 +432,7 @@ export default function App() {
       </div>
 
       {/* Stats */}
-      <div style={{ display: "flex", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="hero-stats stack-mobile" style={{ display: "flex", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         {[{ num: "15+", label: "Years of Service" }, { num: "5K+", label: "Happy Guests" }, { num: "4.9★", label: "Average Rating" }, { num: "24/7", label: "Support" }].map((s, i) => (
           <div key={i} style={{ flex: 1, padding: "44px", textAlign: "center", borderRight: i < 3 ? "1px solid rgba(255,255,255,0.06)" : "none" }}>
             <span style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 52, fontWeight: 300, color: "#c9a96e", display: "block" }}>{s.num}</span>
@@ -451,7 +451,7 @@ export default function App() {
   // ROOM DETAIL PAGE
   // ────────────────────────────────────────
   if (page === "roomDetail" && selectedRoom) return (
-    <div style={{ background: "#0a0a0a", minHeight: "100vh", color: "#fff", fontFamily: "Montserrat, sans-serif" }}>
+    <div className="app-root" style={{ background: "#0a0a0a", minHeight: "100vh", color: "#fff", fontFamily: "Montserrat, sans-serif" }}>
       <link href={FONT} rel="stylesheet" />
       <Nav page="rooms" setPage={setPage} solid={false} />
       <div style={{ position: "relative", height: 500, overflow: "hidden" }}>
@@ -503,12 +503,12 @@ export default function App() {
   // ROOMS PAGE
   // ────────────────────────────────────────
   if (page === "rooms") return (
-    <div style={{ background: "#0a0a0a", minHeight: "100vh", color: "#fff", fontFamily: "Montserrat, sans-serif" }}>
+    <div className="app-root" style={{ background: "#0a0a0a", minHeight: "100vh", color: "#fff", fontFamily: "Montserrat, sans-serif" }}>
       <link href={FONT} rel="stylesheet" />
       <Nav page={page} setPage={setPage} solid={false} />
 
       {/* Hero — your photo, no nav background */}
-      <div style={{ position: "relative", height: "50vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+      <div className="page-hero" style={{ position: "relative", height: "50vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
         <img src={pic3} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(10,10,10,1))" }} />
         <div style={{ position: "relative", zIndex: 10, textAlign: "center", paddingTop: 110 }}>
@@ -519,7 +519,7 @@ export default function App() {
       </div>
 
       {/* Animated room cards grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16, padding: "50px 40px" }}>
+      <div className="grid-2" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16, padding: "50px 40px" }}>
         {rooms.map(room => (
           <RoomCard key={room.id} room={room} onClick={() => { setSelectedRoom(room); setPage("roomDetail"); }} />
         ))}
@@ -534,12 +534,12 @@ export default function App() {
   // HOME PAGE
   // ────────────────────────────────────────
   return (
-    <div style={{ fontFamily: "Montserrat, sans-serif", background: "#0a0a0a", color: "#fff" }}>
+    <div className="app-root" style={{ fontFamily: "Montserrat, sans-serif", background: "#0a0a0a", color: "#fff" }}>
       <link href={FONT} rel="stylesheet" />
       <Nav page="home" setPage={setPage} solid={scrolled} />
 
       {/* HERO */}
-      <div style={{ position: "relative", width: "100%", height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div className="page-hero" style={{ position: "relative", width: "100%", height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <img src={pic2} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.55)" }} />
         <div style={{ position: "relative", zIndex: 10, textAlign: "center", padding: "0 20px" }}>
@@ -562,7 +562,7 @@ export default function App() {
       </div>
 
       {/* QUICK BOOKING */}
-      <div style={{ background: "#111", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="quick-booking stack-mobile" style={{ background: "#111", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div style={{ display: "flex", alignItems: "center", padding: "0 60px" }}>
           {[{ label: "Check In", type: "date" }, { label: "Check Out", type: "date" }].map((f, i) => (
             <div key={i} style={{ flex: 1, padding: "22px 28px", borderRight: "1px solid rgba(255,255,255,0.06)" }}>
@@ -581,7 +581,7 @@ export default function App() {
       </div>
 
       {/* WELCOME */}
-      <div style={{ padding: "100px 60px", display: "flex", alignItems: "center", gap: 90, flexWrap: "wrap" }}>
+      <div className="stack-mobile hero-welcome" style={{ padding: "100px 60px", display: "flex", alignItems: "center", gap: 90, flexWrap: "wrap" }}>
         <div style={{ flex: 1, minWidth: 300 }}>
           <div style={{ position: "relative" }}>
             <img src={pic1} alt="AL Hamid Room" style={{ width: "100%", height: 520, objectFit: "cover" }} />
@@ -607,7 +607,7 @@ export default function App() {
           <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 52, fontWeight: 300, color: "#fff", marginBottom: 12 }}>Our Rooms</h2>
           <div style={{ width: 60, height: 1, background: "#c9a96e", margin: "0 auto" }} />
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16, marginBottom: 40 }}>
+        <div className="grid-2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16, marginBottom: 40 }}>
           {rooms.map(room => (
             <RoomCard key={room.id} room={room} onClick={() => { setSelectedRoom(room); setPage("roomDetail"); }} />
           ))}
@@ -624,7 +624,7 @@ export default function App() {
           <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 52, fontWeight: 300, color: "#fff", marginBottom: 12 }}>The AL HAMID Difference</h2>
           <div style={{ width: 60, height: 1, background: "#c9a96e", margin: "0 auto" }} />
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 20 }}>
+        <div className="grid-4" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 20 }}>
           {[
             { icon: "🤝", title: "Personal Welcome",     text: "Every guest is greeted by name and shown to their room personally by our staff." },
             { icon: "🍽",  title: "Home-Cooked Meals",   text: "Fresh homemade breakfast every morning — made with care like your own kitchen." },
@@ -650,7 +650,7 @@ export default function App() {
           <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 52, fontWeight: 300, color: "#fff", marginBottom: 12 }}>What Our Guests Say</h2>
           <div style={{ width: 60, height: 1, background: "#c9a96e", margin: "0 auto" }} />
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24 }}>
+        <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24 }}>
           {[
             { name: "Sarah M.",  country: "United Kingdom", rating: "★★★★★", text: "AL Hamid Guest House felt like a home away from home. The staff remembered my name, the breakfast was delicious, and my room was spotless. I will absolutely return." },
             { name: "Tariq A.", country: "Saudi Arabia",    rating: "★★★★★", text: "I have stayed in many hotels but AL Hamid's warmth and personal touch is unmatched. The owner personally checked in on my comfort every day. Truly exceptional." },
@@ -674,7 +674,7 @@ export default function App() {
           <span style={{ fontSize: 11, letterSpacing: 5, textTransform: "uppercase", color: "#c9a96e", display: "block", marginBottom: 12 }}>✦ Room Gallery ✦</span>
           <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 46, fontWeight: 300, color: "#fff" }}>Real Rooms, Real Comfort</h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 3, height: 280 }}>
+        <div className="gallery-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 3, height: 280 }}>
           {[pic1, pic2, pic3, pic4, pic5].map((src, i) => (
             <div key={i} style={{ overflow: "hidden", position: "relative", cursor: "pointer" }}
               onMouseEnter={e => { e.currentTarget.querySelector("img").style.transform = "scale(1.12)"; e.currentTarget.querySelector(".overlay").style.opacity = "0"; }}
@@ -690,7 +690,7 @@ export default function App() {
       <BookingCounter />
 
       {/* CONTACT */}
-      <div style={{ background: "#0d0d0d", padding: "90px 60px", display: "flex", alignItems: "center", gap: 80, flexWrap: "wrap" }}>
+      <div className="contact-grid stack-mobile" style={{ background: "#0d0d0d", padding: "90px 60px", display: "flex", alignItems: "center", gap: 80, flexWrap: "wrap" }}>
         <div style={{ flex: 1, minWidth: 300 }}>
           <span style={{ fontSize: 11, letterSpacing: 5, textTransform: "uppercase", color: "#c9a96e", display: "block", marginBottom: 20 }}>✦ Get In Touch ✦</span>
           <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 52, fontWeight: 300, color: "#fff", lineHeight: 1.2, marginBottom: 28 }}>We Are Here<br />For You — Always</h2>
@@ -731,7 +731,7 @@ export default function App() {
 // ── SHARED FOOTER ──
 function Footer({ setPage }) {
   return (
- <div style={{ background: "#080808", borderTop: "1px solid rgba(255,255,255,0.05)", padding: "44px 60px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 20 }}>
+ <div className="footer" style={{ background: "#080808", borderTop: "1px solid rgba(255,255,255,0.05)", padding: "44px 60px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 20 }}>
   <div>
     <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 28, color: "#c9a96e", marginBottom: 4 }}>AL HAMID Guest House</div>
     <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", letterSpacing: 1 }}>Peace, Comfort & Warm Hospitality</div>
